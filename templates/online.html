@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Online services{% endblock title %}
+{% block head %}
+
+
+
+<style>
+
+</style>
+{% endblock head %}
+
+
+
+{% block body %}
+
+<header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <div class="logo">
+                <b>LOGO</b>
+            </div>
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark dropdown-toggle hmm" onclick="so()">Services</a>
+                {% comment %} <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">Dropdown</a> {% endcomment %}
+                <div class="dropdown-menu  togglem" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="/online/">Online services</a>
+                    <a class="dropdown-item" href="/offline/">Offline services</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li> -->
+            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        </ul>
+
+
+        <div class="col-md-3 text-end welcome">
+            {% if user.is_authenticated %}
+            <h4>Welcome {{user.username}}&nbsp;</h4>
+        </div>
+
+        {% else %}
+        <div class="col-md-9 text-end">
+            <a href="/login"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+            <a href="/signin"><button type="button" class="btn btn-primary">Sign-up</button></a>
+        </div>
+        {% endif %}
+    </header>
+{% for i in feature %}
+<section>
+
+
+<div class="container col-xl-10 col-md-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-sm-4 text-center text-sm-start">
+        <h1 class="display-5 fw-bold lh-5 mb-1">{{i.title}}</h1>
+    </div>
+    <!-- <div class="line"></div> -->
+    <div class="col-sm-5 mx-auto col-sm-7">
+        
+        <p class="col-xl-12 fs-6">{{i.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endfor %}
+{% endblock body %}

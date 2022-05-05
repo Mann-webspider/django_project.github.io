@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Offline services{% endblock title %}
+{% block head %}
+
+
+
+
+{% endblock head %}
+
+
+
+{% block body %}
+
+<header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <div class="logo">
+                <b>LOGO</b>
+            </div>
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark dropdown-toggle hmm" onclick="so()">Services</a>
+                {% comment %} <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">Dropdown</a> {% endcomment %}
+                <div class="dropdown-menu  togglem" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="/online/">Online services</a>
+                    <a class="dropdown-item" href="/offline/">Offline services</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <!-- <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li> -->
+            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        </ul>
+
+
+        <div class="col-md-3 text-end welcome ">
+            {% if user.is_authenticated %}
+            <h4>Welcome {{user.username}}</h4>
+        </div>
+
+        {% else %}
+        <div class="col-md-9 text-end">
+            <a href="/login"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+            <a href="/signin"><button type="button" class="btn btn-primary">Sign-up</button></a>
+        </div>
+        {% endif %}
+    </header>
+<section>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> -->
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">KPO- Data Entry Services Universe</h1>
+            <p class="end-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium molestias inventore
+                 nisi consectetur cum cumque quaerat ut. Repellat blanditiis vero sequi, ducimus veniam asperiores, aut nobis
+                  corrupti maxime explicabo suscipit consequuntur! Eos accusamus dolore obcaecati?</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Our services</button> -->
+              <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+  
+{% endblock body %}
