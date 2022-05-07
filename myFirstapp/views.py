@@ -50,7 +50,7 @@ def signin(request):
     return render(request, 'signin.html')
 
 def online(request):
-    # online = onlineFeature()
+    # online = onlineFeature()  
     features = onlineFeature.objects.all()
 
     return render(request,'online.html',{'feature':features})
